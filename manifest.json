@@ -1,0 +1,16 @@
+﻿{
+    "builds":  [
+                   {
+                       "chipFamily":  "ESP32",
+                       "parts":  [
+                                     {
+                                         "offset":  0,
+                                         "path":  "family-hub-full.bin"
+                                     }
+                                 ]
+                   }
+               ],
+    "name":  "Family hub",
+    "version":  "3",
+    "new_install_prompt_erase":  true
+}
