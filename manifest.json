@@ -1,4 +1,4 @@
-﻿{
+{
     "builds":  [
                    {
                        "chipFamily":  "ESP32",
