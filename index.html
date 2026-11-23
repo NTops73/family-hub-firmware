@@ -6,29 +6,50 @@
 <title>Family hub installer</title>
 <script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module"></script>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 560px; margin: 32px auto; padding: 0 16px; line-height: 1.5; color: #1a1a1a; background: #fff; }
-  h1 { font-size: 28px; }
-  ol li { margin-bottom: 10px; }
-  .note { color: #555; font-size: 15px; }
-  esp-web-install-button button { font-size: 20px; padding: 12px 24px; }
+  body { font-family: system-ui, sans-serif; max-width: 600px; margin: 32px auto; padding: 0 16px; line-height: 1.55; color: #1a1a1a; background: #fff; font-size: 18px; }
+  h1 { font-size: 30px; }
+  ol li { margin-bottom: 12px; }
+  .note { color: #555; font-size: 16px; }
+  .box { background: #f3f6f9; border-radius: 10px; padding: 12px 16px; margin: 20px 0; }
+  esp-web-install-button button { font-size: 22px; padding: 14px 28px; }
 </style>
 </head>
 <body>
 <h1>Family hub installer</h1>
-<p>This puts the family hub software onto the screen. You only need it once: after this the screen
-updates itself over WiFi.</p>
+<p>This puts the family hub onto the <b>4-inch screen</b>. You only need to do it once: after this the
+screen updates itself over WiFi.</p>
 <ol>
-  <li>Use <b>Chrome</b> or <b>Edge</b> on a laptop or desktop computer.</li>
-  <li>Plug the screen into the computer with its USB cable.</li>
-  <li>Click <b>Install</b>, choose the port that appears (it may say <i>CP210x</i> or <i>CH340</i>) and
-      click <b>Connect</b>, then <b>Install</b>.</li>
-  <li>Wait about a minute until it says it's done, then unplug it and plug it into its usual charger.</li>
-  <li>The screen then shows <b>WiFi setup</b>: follow the steps on it with a phone.</li>
+  <li>Use this laptop in <b>Chrome</b> or <b>Edge</b>.</li>
+  <li>Plug the screen into the laptop with a <b>USB-C cable</b>. The screen lights up.</li>
+  <li>Click the blue <b>Connect</b> button below. A list pops up: pick the line that says
+      <b>USB-SERIAL CH340</b> (or <i>USB Serial</i>) and click <b>Connect</b>.</li>
+  <li>Click <b>Install Family hub</b>. If it asks about erasing the device, tick it and carry on.
+      Then click <b>Install</b> again.</li>
+  <li>Wait about two minutes until it says <b>Installation complete</b>. Leave the cable in until then.</li>
+  <li>Unplug the screen and plug it into its USB charger where it will live.</li>
 </ol>
-<esp-web-install-button manifest="manifest.json">
-  <span slot="unsupported">This browser can't do it. Please use Chrome or Edge on a computer.</span>
+<div class="box">
+  <b>On the screen afterwards:</b>
+  <ol>
+    <li><b>Touch screen setup:</b> press the middle of each red cross with the stylus (three crosses).</li>
+    <li><b>WiFi setup:</b> on a phone, join the WiFi called <b>Family-Hub</b> (password <b>familyhub</b>).
+        A page opens: pick your home WiFi, type its password and tap <b>Save and connect</b>.</li>
+  </ol>
+</div>
+<esp-web-install-button manifest="manifest-cyd.json">
+  <button slot="activate">Connect</button>
+  <span slot="unsupported">This browser can't do it. Please open this page in Chrome or Edge.</span>
+  <span slot="not-allowed">This page has to be opened over https. Please use the link you were sent.</span>
 </esp-web-install-button>
-<p class="note">If no port appears, the computer may need the USB driver for the board
-(search for "CP210x driver" or "CH340 driver").</p>
+<h2>If something goes wrong</h2>
+<ul class="note">
+  <li><b>No CH340 line in the list:</b> try another USB-C cable (some only charge and can't carry data),
+      or a different USB socket. If it still doesn't appear, Windows needs the CH340 driver: search for
+      "CH341SER driver" on wch-ic.com, install it, and try again.</li>
+  <li><b>It fails part-way:</b> unplug the screen, plug it back in, reload this page and start again.
+      Nothing can be broken by trying again.</li>
+  <li><b>It won't connect at all:</b> hold the small <b>BOOT</b> button on the back of the screen, press and
+      release <b>RESET</b>, then let go of BOOT, and click Connect again.</li>
+</ul>
 </body>
 </html>

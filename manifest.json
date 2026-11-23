@@ -10,7 +10,7 @@
                                  ]
                    }
                ],
-    "name":  "Family hub",
-    "version":  "3",
+    "name":  "Family hub (DevKit)",
+    "version":  "4",
     "new_install_prompt_erase":  true
 }

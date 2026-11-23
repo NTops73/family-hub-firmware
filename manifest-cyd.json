@@ -1,0 +1,16 @@
+{
+    "builds":  [
+                   {
+                       "chipFamily":  "ESP32",
+                       "parts":  [
+                                     {
+                                         "offset":  0,
+                                         "path":  "cyd-hub-full.bin"
+                                     }
+                                 ]
+                   }
+               ],
+    "name":  "Family hub (CYD 4\")",
+    "version":  "4",
+    "new_install_prompt_erase":  true
+}
